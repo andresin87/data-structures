@@ -1,0 +1,40 @@
+{
+  "env": {
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "react-app"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "curly": "warn",
+    "function-paren-newline": 0,
+    "no-debugger": "error",
+    "no-console": "off",
+    "no-unused-expressions": 0,
+    "max-len": [
+      "error",
+      {
+        "code": 200
+      }
+    ],
+    "object-curly-newline": 0,
+    "padded-blocks": 0,
+    "prefer-destructuring": 0,
+    "prettier/prettier": "error",
+    "strict": ["error", "global"]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
+  }
+}

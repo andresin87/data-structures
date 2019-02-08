@@ -1,1 +1,34 @@
+# Application
+results.json
+junit.xml
+**/screenshots/**
+/coverage*
+/dist/
+/cache/
+mocha.json
+/junit.xml
+
+# Node.js
+finished_feat
+**/node_modules/**
+package-lock.json
+up_run.sh
+
+*.log
+npm-debug.log*
+.npm
+
+# IDE's
 .idea
+.iml
+*.iml
+
+# Dist output
+.storybook/dist
+
+# MAC
+.DS_Store
+# files
+!/**/*.gitkeep
+target
+npm-debug.*

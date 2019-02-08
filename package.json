@@ -1,0 +1,76 @@
+{
+  "private": false,
+  "name": "data-structures",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "version": "1.0.0",
+  "main": "index.js",
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ],
+    "ignore": [
+      "node_modules"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andresin87/data-structures.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andresin87/data-structures/issues"
+  },
+  "homepage": "https://github.com/andresin87/data-structures#readme",
+  "devDependencies": {
+    "babel-cli": "^6.8.0",
+    "babel-core": "^6.8.0",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-transform-runtime": "^6.8.0",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.8.0",
+    "babel-runtime": "^6.26.0",
+    "buffer-to-arraybuffer": "^0.0.5",
+    "chai": "^4.1.2",
+    "chai-exclude": "^1.0.8",
+    "chai-things": "^0.2.0",
+    "eslint": "^4.18.0",
+    "eslint-config-react-app": "^3.0.5",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.6.1",
+    "husky": "^1.2.1",
+    "istanbul": "^1.1.0-alpha.1",
+    "istanbul-combine": "^0.3.0",
+    "mocha": "^5.0.1",
+    "mocha-bamboo-reporter": "^1.1.1",
+    "mocha-junit-reporter": "^1.17.0",
+    "mock-local-storage": "^1.0.5",
+    "prettier": "^1.15.3",
+    "pretty-quick": "^1.8.0",
+    "thread-sleep": "^2.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "scripts": {
+    "clean": "rm -Rf dist coverage cache junit.xml",
+    "install:dependencies": "yarn install --pure-lock && yarn add redpoints-model-js",
+    "lint": "eslint 'src/**/*.{js,jsx}' 'test/**/*.js'",
+    "test": "yarn run clean && mocha --require babel-core/register --require mock-local-storage --timeout 10000 --recursive 'src/**/?(*.)+(spec|test).js?(x)'",
+    "dist": "rm -Rf ./dist && mkdir ./dist && node ./node_modules/babel-cli/bin/babel.js ./src --out-dir ./dist --copy-files && cp package.json ./dist/ && cd dist && yarn pack",
+    "publishNpm": "cd ./dist && yarn publish $(node -p \"require('./package.json').name\")-v$(node -p \"require('./package.json').version\").tgz --new-version $(node -p \"require('./package.json').version\")",
+    "tag:canary": "yarn tag add $(node -p \"require('./package.json').name\")@$(node -p \"require('./package.json').version\") canary",
+    "tag:stable": "yarn tag add $(node -p \"require('./package.json').name\")@$(node -p \"require('./package.json').version\") stable",
+    "prettier": "prettier --config .prettierrc --write '{{src,test},__{tests,mocks}__}/**/*.{js,jsx}'"
+  }
+}
